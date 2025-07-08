@@ -1,0 +1,4 @@
+# Out objects and main binary
+*.o
+Xaveman
+.vscode/*
