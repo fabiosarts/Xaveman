@@ -30,7 +30,7 @@ class CWItemList : public CWidget
 private:
     std::vector<CWItemListEntry> items;
 public:
-    CWItemList(int x, int y, uint width, uint height, CWidget* parent);
+    CWItemList(int x, int y, uint width, uint height, CWidget* parent, XFontStruct *font);
     ~CWItemList();
     
     // Add new item to the list

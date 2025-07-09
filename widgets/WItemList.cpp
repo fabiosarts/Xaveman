@@ -29,8 +29,8 @@ std::string CWItemListEntry::getLabel()
 
 // CWItemList Widget definition
 
-CWItemList::CWItemList(int x, int y, uint width, uint height, CWidget *parent)
-: CWidget(x, y, width, height, parent->getScreen(), parent->getDisplay(), parent->getWindow())
+CWItemList::CWItemList(int x, int y, uint width, uint height, CWidget *parent, XFontStruct *font)
+: CWidget(x, y, width, height, parent->getScreen(), parent->getDisplay(), parent->getWindow(), font)
 {
     
 }

@@ -8,8 +8,8 @@ LIBS = -lX11 -lXpm
 all: $(TARGET)
 
 # Linking the final executable
-$(TARGET): icons.o WItemList.o WMainApp.o main.o
-	$(CC) $(CFLAGS) icons.o Widget.o WItemList.o WMainApp.o main.o $(LIBS) -o $(TARGET)
+$(TARGET): icons.o Widget.o WButton.o WItemList.o WMainApp.o main.o
+	$(CC) $(CFLAGS) icons.o Widget.o WButton.o WItemList.o WMainApp.o main.o $(LIBS) -o $(TARGET)
 
 icons.o: icons.cpp
 	$(CC) icons.cpp $(CFLAGS) -c -o icons.o
@@ -19,6 +19,9 @@ main.o: main.cpp
 
 Widget.o: ./widgets/Widget.cpp
 	$(CC) ./widgets/Widget.cpp $(CFLAGS) -c -o Widget.o
+
+WButton.o: Widget.o ./widgets/WButton.cpp
+	$(CC) ./widgets/WButton.cpp $(CFLAGS) -c -o WButton.o
 
 WItemList.o: Widget.o ./widgets/WItemList.cpp
 	$(CC) ./widgets/WItemList.cpp $(CFLAGS) -c -o WItemList.o

@@ -14,10 +14,10 @@ private:
     int posX, posY;
     int width, height;
     std::vector<CWidget *> controls;
-
+    XFontStruct *font;
 public:
     // Constructor
-    CWidget(int x, int y, uint width, uint height, int screen, Display *display, Window parent);
+    CWidget(int x, int y, uint width, uint height, int screen, Display *display, Window parent, XFontStruct *font);
     virtual ~CWidget();
 
     //static CWidget* Create(CWidget* parent, int posX, int posY, uint width, uint height);
@@ -31,6 +31,7 @@ public:
     int getPosY();
     int getWidth();
     int getHeight();
+    XFontStruct *getFont();
 
     int setRect(int posX, int posY, uint width, uint height);
 

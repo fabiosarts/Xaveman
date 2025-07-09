@@ -2,13 +2,13 @@
 
 #include "../icons.hpp"
 
-WMainApp::WMainApp(int x, int y, uint width, uint height, int screen, Display *display, Window parent)
-    : CWidget(x, y, width, height, screen, display, parent)
+WMainApp::WMainApp(int x, int y, uint width, uint height, int screen, Display *display, Window parent, XFontStruct *font)
+    : CWidget(x, y, width, height, screen, display, parent, font)
 {
-    dirListView = new CWItemList(5, 5, getWidth() / 2 - 10, getHeight() - 10, this);
+    dirListView = new CWItemList(5, 5, getWidth() / 2 - 10, getHeight() - 10, this, getFont());
     AddControl(dirListView);
 
-    fileListView = new CWItemList(getWidth() / 2 + 5, 5, getWidth() / 2 - 10, getHeight() - 10, this);
+    fileListView = new CWItemList(getWidth() / 2 + 5, 5, getWidth() / 2 - 10, getHeight() - 10, this, getFont());
     AddControl(fileListView);
 
     navigateTo("/etc");

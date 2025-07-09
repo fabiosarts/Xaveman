@@ -1,6 +1,6 @@
 #include "Widget.hpp"
 
-CWidget::CWidget(int x, int y, uint width, uint height, int screen, Display *display, Window parent)
+CWidget::CWidget(int x, int y, uint width, uint height, int screen, Display *display, Window parent, XFontStruct *font)
 {
     this->posX = x;
     this->posY = y;
@@ -11,6 +11,9 @@ CWidget::CWidget(int x, int y, uint width, uint height, int screen, Display *dis
     this->parent = parent;
     this->window = XCreateSimpleWindow(display, parent, x, y, width, height, 0, WhitePixel(display, screen), WhitePixel(display, screen));
     this->display = display;
+
+    this->font = font;
+
     XMapWindow(display, this->window);
 }
 
@@ -60,6 +63,11 @@ int CWidget::getWidth()
 int CWidget::getHeight()
 {
     return this->height;
+}
+
+XFontStruct *CWidget::getFont()
+{
+    return this->font;
 }
 
 int CWidget::setRect(int posX, int posY, uint width, uint height)

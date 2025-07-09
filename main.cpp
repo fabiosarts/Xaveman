@@ -41,6 +41,9 @@ int main()
     // Map (show) the window
     XMapWindow(display, window);
 
+    // Prepare main font
+    XFontStruct *font = XLoadQueryFont(display, "fixed");
+
     // Event Messages
     Atom wmDeleteMessage = XInternAtom(display, "WM_DELETE_WINDOW", False);
     XSetWMProtocols(display, window, &wmDeleteMessage, 1);
@@ -53,7 +56,7 @@ int main()
     int oldHeight = 0;
 
     // WMainApp
-    WMainApp *mainApp = new WMainApp(10, 10, 30, 60, screen, display, window);
+    WMainApp *mainApp = new WMainApp(10, 10, 30, 60, screen, display, window, font);
 
     // Event loop
     bool running = true;
